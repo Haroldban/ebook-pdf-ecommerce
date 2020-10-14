@@ -1,3 +1,24 @@
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDO4HL4O2CXUvY9qPXP5E42hQwWLfL3ACc",
+    authDomain: "online-market-system.firebaseapp.com",
+    databaseURL: "https://online-market-system.firebaseio.com",
+    storageBucket: "online-market-system.appspot.com"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="../scripts/firebase.js"></script>
+
 <template>
   <article>
     <div class="container" :class="{'sign-up-active' : signUp}">
@@ -15,21 +36,21 @@
           </div>
         </div>
       </div>
-      <form class="sign-up" action="#">
+      <form class="sign-up">
         <h2>Create login</h2>
         <div>Use your email for registration</div>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Sign Up</button>
+        <input type="text" placeholder="Name" required/>
+        <input id="email_su" type="email" placeholder="Email" required/>
+        <input id="password_su" type="password" placeholder="Password" required/>
+        <button id="signup" class="button" onclick="signup()">Sign Up</button>
       </form>
       <form class="sign-in" action="#">
         <h2>Sign In</h2>
         <div>Use your account</div>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
+        <input id="email_log" type="email" placeholder="Email" />
+        <input id="password_log" type="password" placeholder="Password" />
         <a href="#">Forgot your password?</a>
-        <button>Sign Up</button>
+        <button id="login" class="button" onclick="login()">Sign In</button>
       </form>
     </div>
   </article>
